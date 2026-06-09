@@ -1,113 +1,27 @@
-# 📚 API de Livros — Backend
+# API de Livros (Backend)
 
-API REST para gerenciamento de livros com CRUD completo, desenvolvida com **Node.js**, **Express** e **MongoDB Atlas**.
+API RESTful para gerenciamento de livros utilizando Node.js, Express e MongoDB.
 
-## 🛠️ Tecnologias
+## Funcionalidades
+- Criar livro (POST /api/livros)
+- Listar livros (GET /api/livros)
+- Buscar livro (GET /api/livros/:id)
+- Atualizar livro (PUT /api/livros/:id)
+- Excluir livro (DELETE /api/livros/:id)
 
-- **Node.js** — Runtime JavaScript
-- **Express** — Framework web
-- **Mongoose** — ODM para MongoDB
-- **MongoDB Atlas** — Banco de dados em nuvem
-- **Morgan** — Logger de requisições HTTP
-- **CORS** — Controle de acesso cross-origin
-- **dotenv** — Gerenciamento de variáveis de ambiente
+## Tecnologias
+- Node.js
+- Express
+- MongoDB (Mongoose)
+- CORS
+- dotenv
+- morgan
 
-## 📁 Estrutura do Projeto
+## Como executar localmente
+1. Instale as dependências: `npm install`
+2. Configure o arquivo `.env` com a sua URI do MongoDB (MONGODB_URI).
+3. Execute o projeto: `npm run dev` (desenvolvimento) ou `npm start` (produção).
 
-```
-backend/
-├── src/
-│   ├── config/
-│   │   └── database.js       # Conexão com MongoDB
-│   ├── controllers/
-│   │   └── livroController.js # Lógica de negócio (CRUD)
-│   ├── models/
-│   │   └── Livro.js           # Schema do Mongoose
-│   ├── routes/
-│   │   └── livroRoutes.js     # Rotas da API
-│   └── server.js              # Ponto de entrada
-├── .env                       # Variáveis de ambiente
-├── package.json
-└── README.md
-```
-
-## 🚀 Instalação e Execução
-
-### Pré-requisitos
-
-- Node.js 18+
-- npm ou yarn
-
-### Passos
-
-1. Clone o repositório:
-
-```bash
-git clone <url-do-repositorio>
-cd backend
-```
-
-2. Instale as dependências:
-
-```bash
-npm install
-```
-
-3. Configure as variáveis de ambiente no arquivo `.env`:
-
-```env
-PORT=3000
-MONGODB_URI=mongodb+srv://<usuario>:<senha>@<cluster>.mongodb.net/livros_crud?retryWrites=true&w=majority
-NODE_ENV=development
-```
-
-4. Inicie o servidor:
-
-```bash
-# Desenvolvimento (com hot-reload)
-npm run dev
-
-# Produção
-npm start
-```
-
-O servidor estará disponível em `http://localhost:3000`.
-
-## 📡 Rotas da API
-
-| Método   | Rota              | Descrição              |
-| -------- | ----------------- | ---------------------- |
-| `GET`    | `/api/livros`     | Listar todos os livros |
-| `GET`    | `/api/livros/:id` | Buscar livro por ID    |
-| `POST`   | `/api/livros`     | Cadastrar novo livro   |
-| `PUT`    | `/api/livros/:id` | Atualizar livro        |
-| `DELETE` | `/api/livros/:id` | Excluir livro          |
-
-### Exemplo de Body (POST/PUT)
-
-```json
-{
-  "titulo": "Dom Casmurro",
-  "autor": "Machado de Assis",
-  "genero": "Romance",
-  "anoPublicacao": 1899,
-  "lido": true
-}
-```
-
-### Gêneros Disponíveis
-
-`Ficção`, `Não-Ficção`, `Romance`, `Terror`, `Fantasia`, `Ficção Científica`, `Biografia`, `História`, `Autoajuda`, `Técnico`, `Infantil`, `Outro`
-
-## 🌐 Deploy (Render)
-
-1. Crie um novo **Web Service** no [Render](https://render.com)
-2. Conecte ao repositório Git
-3. Configure:
-   - **Build Command:** `npm install`
-   - **Start Command:** `npm start`
-   - **Environment Variables:** Adicione `MONGODB_URI` e `NODE_ENV=production`
-
-## 📄 Licença
-
-MIT
+## Deploy no Render
+O deploy está configurado via arquivo `render.yaml`.
+URL Base da API: https://back-end-geraldo-crud.onrender.com/api
